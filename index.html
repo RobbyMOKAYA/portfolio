@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        #about {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        #about h2 {
+            font-weight: bold;
+            color: #004e92;
+            text-align: center;
+        }
+        #about p {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        #about h4 {
+            font-weight: bold;
+            color: #222;
+            margin-top: 20px;
+        }
+        #about ul {
+            list-style: none;
+            padding: 0;
+        }
+        #about ul li {
+            background: #004e92;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s ease-in-out;
+        }
+        #about ul li:hover {
+            background: #002f6c;
+        }
+        #about a.btn {
+            background: #004e92;
+            color: white;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+        }
+        #about a.btn:hover {
+            background: #002f6c;
+        }
+        #portfolio {
+            background: linear-gradient(to right, #004e92, #000428);
+            color: white;
+        }
+        .portfolio-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .portfolio-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .portfolio-item a {
+            text-decoration: none;
+            color: white;
+            background: #004e92;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin-top: 10px;
+        }
+        .portfolio-item a:hover {
+            background: #002f6c;
+        }
+        .card {
+            background: #222;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 2px solid transparent;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            border-color: gold;
+        }
+        .card img {
+            border-radius: 5px;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-nav .nav-links a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-nav .nav-links a:hover {
+            color: #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">MOKAYA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="text-light p-5" style="background: linear-gradient(to right, #000428, #004e92);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h1>Hello, I'm MOKAYA</h1>
+                    <p>Full Stack Engineer | Networker | Cyber Security Enthusiast</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="card p-2 shadow" style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; border: none;">
+                        <img src="Robin.jpg" alt="Your Photo" class="img-fluid" style="max-width: 100%; border-radius: 5px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="p-5 bg-light text-dark">
+        <div class="container">
+            <h2 class="text-center">About Me</h2>
+            <p class="text-center">I am a passionate Full Stack Engineer with experience in web development, networking, and cyber security. I specialize in creating responsive and efficient web applications.</p>
+            <h4>Skills</h4>
+            <ul>
+                <li>Full Stack Web Development (HTML, CSS, JavaScript, Bootstrap, PHP, MySQL)</li>
+                <li>Networking & Cyber Security</li>
+                <li>Database Management & Optimization</li>
+                <li>Software Development & Debugging</li>
+            </ul>
+            <h4>Hobbies</h4>
+            <ul>
+                <li>Gaming</li>
+                <li>Coding</li>
+                <li>Hiking</li>
+            </ul>
+            <h4>Resume</h4>
+            <a href="Mokaya CV.pdf" download class="btn btn-dark">Download and view My Resume</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="p-5 text-light">
+        <div class="container">
+            <h2 class="text-center">Projects</h2>
+            <p class="text-center">Here are some of my recent projects:</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-item card">
+                        <img src="Screenshot (97).png" class="img-fluid" alt="My Portfolio">
+                        <h5>My Portfolio</h5>
+                        <p>A personal portfolio built with HTML, Bootstrap CSS, and JavaScript.</p>
+                        <a href="index.html" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item card">
+                        <img src="Screenshot (96).png" class="img-fluid" alt="Tuchezee Gaming Website">
+                        <h5>Tuchezee Game shop</h5>
+                        <p>Built with HTML, Vanilla CSS, and JavaScript.</p>
+                        <a href="https://robbymokaya.github.io/game-website" target="_blank">View</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item card">
+                        <img src="CYB.jpeg" class="img-fluid" alt="Snipe AI Cybersecurity">
+                        <h5>Snipe</h5>
+                        <p>An AI-powered cybersecurity tool for detecting threats.</p>
+                        <a href="#">IN PROGRESS...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="p-5 bg-light text-dark">
+        <div class="container">
+            <h2 class="text-center">Contact Me</h2>
+            <p class="text-center">Feel free to reach out to me via the details below:</p>
+            <div class="text-center mb-4">
+                <p><strong>Phone:</strong> +254727272928</p>
+                <p><strong>Email:</strong> mokayarobin5@gmail.com</p>
+            </div>
+            <p class="text-center">Or send me a message directly:</p>
+            <form action="mailto:mokayarobin5@gmail.com" method="post" enctype="text/plain">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+    <footer class="bg-dark text-light text-center p-3">
+        <p>Connect with me:</p>
+        <a href="https://wa.me/+254727272928" target="_blank" class="me-2"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/mokaya-robin" target="_blank" class="me-2"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/thee_gaminglord" target="_blank" class="me-2"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/IamRobbie7" target="_blank" class="me-2"><i class="fab fa-twitter"></i></a>
+    </footer>
+
+    <footer class="bg-dark text-light p-3 mt-2">
+        <div class="container footer-nav">
+            <p>&copy; 2025 Mokaya. All Rights Reserved.</p>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
