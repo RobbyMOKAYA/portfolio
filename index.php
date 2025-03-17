@@ -210,21 +210,59 @@
                 <p><strong>Email:</strong> mokayarobin5@gmail.com</p>
             </div>
             <p class="text-center">Or send me a message directly:</p>
-            <form action="mailto:mokayarobin5@gmail.com" method="post" enctype="text/plain">
+            
+             <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = htmlspecialchars($_POST["name"]);
+            $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+            $message = htmlspecialchars($_POST["message"]);
+            $recaptchaResponse = $_POST["g-recaptcha-response"];
+
+            // Validate email format
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo '<div class="alert alert-danger">Invalid email format.</div>';
+            } 
+            // Validate Google reCAPTCHA
+            else {
+                $recaptchaSecret = "6LfkW_cqAAAAAH8i8Tn8inXvoiIMu-8iR1uGotwN";  
+                $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse");
+                $captchaSuccess = json_decode($verify);
+
+                if ($captchaSuccess->success) {
+                    // Send Email
+                    $to = "mokayarobin5@gmail.com";  // Change to your email
+                    $subject = "New Contact Form Submission";
+                    $headers = "From: $email";
+                    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+                    if (mail($to, $subject, $body, $headers)) {
+                        echo '<div class="alert alert-success">Message sent successfully!</div>';
+                    } else {
+                        echo '<div class="alert alert-danger">Error sending message.</div>';
+                    }
+                } else {
+                    echo '<div class="alert alert-danger">reCAPTCHA verification failed. Please try again.</div>';
+                }
+            }
+        }
+        ?>
+            <form method="post">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark">Send Message</button>
-            </form>
+                   <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message" required></textarea>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LfkW_cqAAAAAChdm18mvRJeP6nQPuzgFxIqB-DG"></div> <!-- Replace with your Google reCAPTCHA Site Key -->
+            <br>
+            <button type="submit" class="btn btn-dark">Send Message</button>
+        </form>
         </div>
     </section>
 
